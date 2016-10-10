@@ -4,4 +4,5 @@
     <string name="mStringViewMore">&#8230;view more choose!</string>
     <string name="mStringCopy">Copy</string>
     <string name="mStringDelete">Delete</string>
+    <string name="mStringPasswordEmpty">There is no password to copy</string>
 </resources>
