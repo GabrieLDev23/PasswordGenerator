@@ -1,0 +1,7 @@
+<resources>
+    <string name="mAppName">Password Generator</string>
+    <string name="mStringGenerate">Generate</string>
+    <string name="mStringViewMore">&#8230;view more choose!</string>
+    <string name="mStringCopy">Copy</string>
+    <string name="mStringDelete">Delete</string>
+</resources>
