@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private BottomSheetDialog mBottomSheet;
     private Animation mRotateBackward;
     private String mPasswordGenerate, mTextOfEditText;
-    private LinearLayout mGenerateBottomSheet, mCopyBottomSheet, mDeleteBottomSheet;
     private ClipboardManager mClipboardManager;
     private ClipData mClipData;
 
@@ -38,6 +37,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mBottomSheet = new BottomSheetDialog(this);
+        View mBottomSheetView = getLayoutInflater().inflate(R.layout.bottom_sheet, null);
+        mBottomSheet.setContentView(mBottomSheetView);
+
         mClipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
         mButtonGenerate = (Button) findViewById(R.id.mButtonGenerate);
         mTextViewMoreChoose = (TextView) findViewById(R.id.mTextViewMoreChoose);
@@ -46,21 +50,16 @@ public class MainActivity extends AppCompatActivity {
 
         mRotateBackward = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_backward);
 
-        mBottomSheet = new BottomSheetDialog(this);
-        View mBottomSheetView = getLayoutInflater().inflate(R.layout.bottom_sheet, null);
-        mBottomSheet.setContentView(mBottomSheetView);
+        LinearLayout mGenerateBottomSheet = (LinearLayout) findViewById(R.id.mGenerateButtonBottomSheet);
+        LinearLayout mCopyBottomSheet = (LinearLayout) findViewById(R.id.mCopyButtonBottomSheet);
+        LinearLayout mDeleteBottomSheet = (LinearLayout) findViewById(R.id.mDeleteButtonBottomSheet);
 
-        ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, new String[] {mPasswordGenerate});
-        mEditTextPassword.setAdapter(mAdapter);
-
-        mGenerateBottomSheet = (LinearLayout) findViewById(R.id.mGenerateButtonBottomSheet);
         mGenerateBottomSheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mBottomSheet.dismiss();
             }
         });
-        mCopyBottomSheet = (LinearLayout) findViewById(R.id.mCopyButtonBottomSheet);
         mCopyBottomSheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 mBottomSheet.dismiss();
             }
         });
-        mDeleteBottomSheet = (LinearLayout) findViewById(R.id.mDeleteButtonBottomSheet);
         mDeleteBottomSheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
