@@ -43,9 +43,6 @@ public class MainActivity extends AppCompatActivity {
         mTextViewMoreChoose = (TextView) findViewById(R.id.mTextViewMoreChoose);
         mEditTextPassword = (AutoCompleteTextView) findViewById(R.id.mEditTextPassword);
         mFabHome = (FloatingActionButton) findViewById(R.id.mFabHome);
-        mGenerateBottomSheet = (LinearLayout) findViewById(R.id.mGenerateButtonBottomSheet);
-        mCopyBottomSheet = (LinearLayout) findViewById(R.id.mCopyButtonBottomSheet);
-        mDeleteBottomSheet = (LinearLayout) findViewById(R.id.mDeleteButtonBottomSheet);
 
         mRotateBackward = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_backward);
 
@@ -56,12 +53,14 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, new String[] {mPasswordGenerate});
         mEditTextPassword.setAdapter(mAdapter);
 
+        mGenerateBottomSheet = (LinearLayout) findViewById(R.id.mGenerateButtonBottomSheet);
         mGenerateBottomSheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mBottomSheet.dismiss();
             }
         });
+        mCopyBottomSheet = (LinearLayout) findViewById(R.id.mCopyButtonBottomSheet);
         mCopyBottomSheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,12 +68,13 @@ public class MainActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(mTextOfEditText)) {
                     Toast.makeText(MainActivity.this, R.string.mStringPasswordEmpty, Toast.LENGTH_SHORT).show();
                 } else {
-                    mClipData.newPlainText("",mTextOfEditText);
+                    mClipData = ClipData.newPlainText("",mTextOfEditText);
                     mClipboardManager.setPrimaryClip(mClipData);
                 }
                 mBottomSheet.dismiss();
             }
         });
+        mDeleteBottomSheet = (LinearLayout) findViewById(R.id.mDeleteButtonBottomSheet);
         mDeleteBottomSheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
