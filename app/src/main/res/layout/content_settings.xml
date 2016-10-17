@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="io.github.gabrieldev.passwordgenerator.SettingsActivity"
+    tools:showIn="@layout/activity_settings">
+
+    <TextView
+        android:text="@string/mStringTypePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView"
+        android:gravity="center_vertical"
+        android:paddingStart="4dp"
+        tools:ignore="RtlSymmetry"
+        android:layout_marginTop="5dp" />
+
+    <CheckedTextView
+        android:text="@string/mStringLetterMaiusc"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:id="@+id/mCheckedTextViewUppercase"
+        android:gravity="center_vertical"
+        android:paddingStart="12dp"
+        tools:ignore="RtlSymmetry"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:clickable="true"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        style="@style/Dividers"
+        android:layout_alignBottom="@+id/mCheckedTextViewUppercase" />
+
+    <CheckedTextView
+        android:text="@string/mStringLetterMinusc"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_below="@+id/mCheckedTextViewUppercase"
+        android:gravity="center_vertical"
+        android:layout_alignParentStart="true"
+        android:id="@+id/mCheckedTextViewLowercase"
+        android:paddingStart="12dp"
+        tools:ignore="RtlSymmetry"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:clickable="true" />
+
+    <TextView
+        style="@style/Dividers"
+        android:layout_alignBottom="@+id/mCheckedTextViewLowercase" />
+
+    <CheckedTextView
+        android:text="@string/mStringLetterNumber"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_below="@+id/mCheckedTextViewLowercase"
+        android:gravity="center_vertical"
+        android:layout_alignParentStart="true"
+        android:id="@+id/mCheckedTextViewNumbers"
+        android:paddingStart="12dp"
+        tools:ignore="RtlSymmetry"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:clickable="true" />
+
+    <TextView
+        style="@style/Dividers"
+        android:layout_alignBottom="@+id/mCheckedTextViewNumbers" />
+
+    <CheckedTextView
+        android:text="@string/mStringLetterSpecial"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:gravity="center_vertical"
+        android:id="@+id/mCheckedTextViewSpecials"
+        android:paddingStart="12dp"
+        tools:ignore="RtlSymmetry"
+        android:layout_below="@+id/mCheckedTextViewNumbers"
+        android:layout_alignParentStart="true"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:clickable="true" />
+
+    <TextView
+        style="@style/Dividers"
+        android:layout_alignBottom="@+id/mCheckedTextViewSpecials" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_below="@+id/mCheckedTextViewSpecials"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:gravity="center"
+        android:id="@+id/mRelativeLayoutEditText"
+        android:layout_alignParentEnd="true">
+
+        <Button
+            android:text="@string/mStringLength"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorAccent"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/mButtonInsertLength" />
+    </RelativeLayout>
+
+    <TextView
+        style="@style/Dividers"
+        android:layout_alignBottom="@+id/mRelativeLayoutEditText" />
+
+</RelativeLayout>

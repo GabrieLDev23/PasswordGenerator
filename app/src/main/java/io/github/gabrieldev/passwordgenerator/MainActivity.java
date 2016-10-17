@@ -10,9 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -21,16 +18,13 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button mButtonGenerate;
-    private TextView mTextViewMoreChoose;
     private AutoCompleteTextView mEditTextPassword;
-    private FloatingActionButton mFabHome;
-    private BottomSheetDialog mBottomSheet;
-    private Animation mRotateBackward;
-    private String mPasswordGenerate, mTextOfEditText;
+    private BottomSheetDialog mBottomSheetDialog;
+    private String mTextOfEditText;
     private ClipboardManager mClipboardManager;
     private ClipData mClipData;
 
+    @SuppressWarnings("all")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,26 +32,26 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        mBottomSheet = new BottomSheetDialog(this);
+        mBottomSheetDialog = new BottomSheetDialog(this);
         View mBottomSheetView = getLayoutInflater().inflate(R.layout.bottom_sheet, null);
-        mBottomSheet.setContentView(mBottomSheetView);
+        mBottomSheetDialog.setContentView(mBottomSheetView);
 
         mClipboardManager = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-        mButtonGenerate = (Button) findViewById(R.id.mButtonGenerate);
-        mTextViewMoreChoose = (TextView) findViewById(R.id.mTextViewMoreChoose);
+        Button mButtonGenerate = (Button) findViewById(R.id.mButtonGenerate);
+        TextView mTextViewMoreChoose = (TextView) findViewById(R.id.mTextViewMoreChoose);
         mEditTextPassword = (AutoCompleteTextView) findViewById(R.id.mEditTextPassword);
-        mFabHome = (FloatingActionButton) findViewById(R.id.mFabHome);
+        FloatingActionButton mFabHome = (FloatingActionButton) findViewById(R.id.mFabHome);
 
-        mRotateBackward = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_backward);
+        LinearLayout mSettingBottomSheet = (LinearLayout) mBottomSheetDialog.findViewById(R.id.mSettingButtonBottomSheet);
+        LinearLayout mCopyBottomSheet = (LinearLayout) mBottomSheetDialog.findViewById(R.id.mCopyButtonBottomSheet);
+        LinearLayout mDeleteBottomSheet = (LinearLayout) mBottomSheetDialog.findViewById(R.id.mDeleteButtonBottomSheet);
 
-        LinearLayout mGenerateBottomSheet = (LinearLayout) findViewById(R.id.mGenerateButtonBottomSheet);
-        LinearLayout mCopyBottomSheet = (LinearLayout) findViewById(R.id.mCopyButtonBottomSheet);
-        LinearLayout mDeleteBottomSheet = (LinearLayout) findViewById(R.id.mDeleteButtonBottomSheet);
-
-        mGenerateBottomSheet.setOnClickListener(new View.OnClickListener() {
+        mSettingBottomSheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mBottomSheet.dismiss();
+                Intent passToSetting = new Intent(MainActivity.this,SettingsActivity.class);
+                startActivity(passToSetting);
+                finish();
             }
         });
         mCopyBottomSheet.setOnClickListener(new View.OnClickListener() {
@@ -70,29 +64,20 @@ public class MainActivity extends AppCompatActivity {
                     mClipData = ClipData.newPlainText("",mTextOfEditText);
                     mClipboardManager.setPrimaryClip(mClipData);
                 }
-                mBottomSheet.dismiss();
+                mBottomSheetDialog.dismiss();
             }
         });
         mDeleteBottomSheet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mEditTextPassword.setText("");
-                mBottomSheet.dismiss();
+                mBottomSheetDialog.dismiss();
             }
         });
         mFabHome.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                mFabHome.startAnimation(mRotateBackward);
-                //Intent passToSetting = new Intent(MainActivity.this,SettingActivity.class);
-                //startActivity(passToSetting);
-                //finish();
-            }
-        });
-        mTextViewMoreChoose.setOnClickListener(new View.OnClickListener() {
-            @Override
             public void onClick(View v) {
-                mBottomSheet.show();
+                mBottomSheetDialog.show();
             }
         });
     }

@@ -22,7 +22,11 @@
         android:id="@+id/mEditTextPassword"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        android:drawableTint="@android:color/white"
+        android:maxLength="99"
+        android:maxLines="1"
+        android:imeActionLabel="Save" />
 
     <Button
         android:text="@string/mStringGenerate"
@@ -34,13 +38,16 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:backgroundTint="@color/colorAccent"
-        tools:ignore="UnusedAttribute" />
+        tools:ignore="UnusedAttribute"
+        android:drawableTint="@android:color/white"
+        android:textAlignment="center" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/mButtonGenerate"
-        android:layout_alignEnd="@+id/mButtonGenerate"
         android:id="@+id/mTextViewMoreChoose"
-        android:text="@string/mStringViewMore" />
+        android:text="@string/mStringViewMore"
+        android:textSize="14sp"
+        android:layout_below="@+id/mButtonGenerate"
+        android:layout_alignEnd="@+id/mButtonGenerate" />
 </RelativeLayout>

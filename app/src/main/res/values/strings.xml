@@ -1,8 +1,20 @@
 <resources>
     <string name="mAppName">Password Generator</string>
+    <string name="mAppNameSettings">Settings</string>
+    <string name="mAppNameInfo">Info</string>
     <string name="mStringGenerate">Generate</string>
-    <string name="mStringViewMore">&#8230;view more choose!</string>
+    <string name="mStringSettings">Settings</string>
     <string name="mStringCopy">Copy</string>
     <string name="mStringDelete">Delete</string>
     <string name="mStringPasswordEmpty">There is no password to copy</string>
+    <string name="mStringTypePassword">Select type of Password:</string>
+    <string name="title_activity_setting">Settings</string>
+    <string name="mStringLetterMaiusc">Uppercase</string>
+    <string name="mStringLetterMinusc">Lowercase</string>
+    <string name="mStringLetterNumber">Numbers</string>
+    <string name="mStringLetterSpecial">Specials</string>
+    <string name="mStringLength">Insert Length</string>
+    <string name="mStringMessageBuilder">Please, insert Length</string>
+    <string name="mStringOK">OK</string>
+    <string name="mStringNo">No</string>
 </resources>
