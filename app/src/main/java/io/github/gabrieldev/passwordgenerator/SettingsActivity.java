@@ -12,14 +12,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckedTextView;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private Button mButtonInsertLength;
     private CheckedTextView mCheckedTextViewUppercase, mCheckedTextViewLowercase, mCheckedTextViewNumbers, mCheckedTextViewSpacials;
     public static boolean mBoolUppercase = false, mBoolLowercase = false, mBoolNumbers = false, mBoolSpecials = false;
     public static int mIntLength;
     private String mStringExtractTextLength;
+    private EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class SettingsActivity extends AppCompatActivity {
                 finish();
             }
         });
-        mButtonInsertLength = (Button) findViewById(R.id.mButtonInsertLength);
+        Button mButtonInsertLength = (Button) findViewById(R.id.mButtonInsertLength);
         mCheckedTextViewUppercase = (CheckedTextView) findViewById(R.id.mCheckedTextViewUppercase);
         mCheckedTextViewLowercase = (CheckedTextView) findViewById(R.id.mCheckedTextViewLowercase);
         mCheckedTextViewNumbers = (CheckedTextView) findViewById(R.id.mCheckedTextViewNumbers);
@@ -109,6 +110,9 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     public void loadingPreferences() {
+        if (MainActivity.mBoolError) {
+            Toast.makeText(this, R.string.mStringErrorLengthNotSetted, Toast.LENGTH_SHORT).show();
+        }
         if (mBoolUppercase) {
             mCheckedTextViewUppercase.setChecked(true);
         } else {
@@ -137,15 +141,16 @@ public class SettingsActivity extends AppCompatActivity {
         View mBuilderView = layoutInflater.inflate(R.layout.custom_builder, null);
         mBuilderInsertLength.setView(mBuilderView);
 
-        final EditText editText = (EditText) mBuilderView.findViewById(R.id.mEditTextLength);
+        editText = (EditText) mBuilderView.findViewById(R.id.mEditTextLength);
 
         mBuilderInsertLength.setTitle("");
         mBuilderInsertLength.setMessage(R.string.mStringMessageBuilder);
         mBuilderInsertLength.setPositiveButton(R.string.mStringOK, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                mStringExtractTextLength = editText.getText().toString().trim();
+                mStringExtractTextLength = editText.getText().toString();
                 mIntLength = Integer.parseInt(mStringExtractTextLength);
+                Toast.makeText(SettingsActivity.this, R.string.mStringSaveSuccessful, Toast.LENGTH_SHORT).show();
             }
         });
         mBuilderInsertLength.setNegativeButton(R.string.mStringNo, new DialogInterface.OnClickListener() {

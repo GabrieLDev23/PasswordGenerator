@@ -13,7 +13,7 @@
     tools:context="io.github.gabrieldev.passwordgenerator.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <AutoCompleteTextView
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -26,7 +26,8 @@
         android:drawableTint="@android:color/white"
         android:maxLength="99"
         android:maxLines="1"
-        android:imeActionLabel="Save" />
+        android:imeActionLabel="Save"
+        android:minLines="1" />
 
     <Button
         android:text="@string/mStringGenerate"
@@ -42,12 +43,4 @@
         android:drawableTint="@android:color/white"
         android:textAlignment="center" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/mTextViewMoreChoose"
-        android:text="@string/mStringViewMore"
-        android:textSize="14sp"
-        android:layout_below="@+id/mButtonGenerate"
-        android:layout_alignEnd="@+id/mButtonGenerate" />
 </RelativeLayout>

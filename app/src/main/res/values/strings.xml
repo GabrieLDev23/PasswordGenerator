@@ -17,4 +17,6 @@
     <string name="mStringMessageBuilder">Please, insert Length</string>
     <string name="mStringOK">OK</string>
     <string name="mStringNo">No</string>
+    <string name="mStringSaveSuccessful">Saved successful!</string>
+    <string name="mStringErrorLengthNotSetted">Please, before genarate password set Length!</string>
 </resources>
