@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -18,8 +19,8 @@ public class SettingsActivity extends AppCompatActivity {
 
     private CheckedTextView mCheckedTextViewUppercase, mCheckedTextViewLowercase, mCheckedTextViewNumbers, mCheckedTextViewSpacials;
     public static boolean mBoolUppercase = false, mBoolLowercase = false, mBoolNumbers = false, mBoolSpecials = false;
+    public static String mStringLength;
     public static int mIntLength;
-    private String mStringExtractTextLength;
     private EditText editText;
 
     @Override
@@ -148,9 +149,13 @@ public class SettingsActivity extends AppCompatActivity {
         mBuilderInsertLength.setPositiveButton(R.string.mStringOK, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                mStringExtractTextLength = editText.getText().toString();
-                mIntLength = Integer.parseInt(mStringExtractTextLength);
-                Toast.makeText(SettingsActivity.this, R.string.mStringSaveSuccessful, Toast.LENGTH_SHORT).show();
+                mStringLength = editText.getText().toString();
+                if (TextUtils.equals(mStringLength, "")) {
+                    Toast.makeText(SettingsActivity.this, R.string.mStringErrorSave, Toast.LENGTH_SHORT).show();
+                } else {
+                    mIntLength = Integer.parseInt(mStringLength);
+                    Toast.makeText(SettingsActivity.this, R.string.mStringSaveSuccessful, Toast.LENGTH_SHORT).show();
+                }
             }
         });
         mBuilderInsertLength.setNegativeButton(R.string.mStringNo, new DialogInterface.OnClickListener() {

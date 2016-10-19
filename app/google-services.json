@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "758424660051",
+    "firebase_url": "https://passwordgenerator-90f19.firebaseio.com",
+    "project_id": "passwordgenerator-90f19",
+    "storage_bucket": "passwordgenerator-90f19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758424660051:android:a313e7c71407c582",
+        "android_client_info": {
+          "package_name": "io.github.gabrieldev.passwordgenerator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758424660051-q5g6s0vgcik11ge8c9btsjdnfbe8l6or.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.github.gabrieldev.passwordgenerator",
+            "certificate_hash": "C8143B5CACC87A0F59375AC1B0A12EF95F7516F6"
+          }
+        },
+        {
+          "client_id": "758424660051-khbdef1s8nbdt90hhb599bbllin12pvt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDPZXHj8E23dBhiMXtP5SieVaQb_jc9KM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758424660051-khbdef1s8nbdt90hhb599bbllin12pvt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

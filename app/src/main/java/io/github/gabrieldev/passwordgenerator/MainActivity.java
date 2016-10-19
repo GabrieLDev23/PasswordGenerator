@@ -3,6 +3,7 @@ package io.github.gabrieldev.passwordgenerator;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.FloatingActionButton;
@@ -14,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 @SuppressWarnings("all")
 public class MainActivity extends AppCompatActivity {

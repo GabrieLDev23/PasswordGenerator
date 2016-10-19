@@ -18,5 +18,7 @@
     <string name="mStringOK">OK</string>
     <string name="mStringNo">No</string>
     <string name="mStringSaveSuccessful">Saved successful!</string>
+    <string name="mStringErrorSave">Could not save now, retry!</string>
     <string name="mStringErrorLengthNotSetted">Please, before genarate password set Length!</string>
+    <string name="title_activity_questionary">QuestionaryActivity</string>
 </resources>
